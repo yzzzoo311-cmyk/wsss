@@ -1,0 +1,248 @@
+📚 دليل التخصيص والتطوير
+
+═══════════════════════════════════════════════════════════════
+
+🎨 تغيير الألوان والتصميم:
+
+في ملف: public/style.css
+
+البحث عن الجزء:
+:root {
+  --primary: #1e3a8a;        ← اللون الأساسي (أزرق)
+  --secondary: #0f172a;      ← اللون الثانوي
+  --accent: #3b82f6;         ← لون التركيز
+  --success: #10b981;        ← الأخضر
+  --danger: #ef4444;         ← الأحمر
+  --warning: #f59e0b;        ← البرتقالي
+}
+
+غيّر الأكواد السادسة عشرية (#) لأي الوان تريدها!
+
+مثال:
+--primary: #667eea;  (بنفسجي)
+--accent: #764ba2;   (بنفسجي فاتح)
+
+═══════════════════════════════════════════════════════════════
+
+🏷️ تغيير اسم الموقع والعلامات:
+
+في ملف: public/index.html
+
+البحث عن:
+<h1>وسطاء العرب</h1>      ← عنوان الموقع
+<title>...</title>          ← عنوان المتصفح
+
+غيّرها لما تريد!
+
+═══════════════════════════════════════════════════════════════
+
+👥 إضافة أنواع سلع جديدة:
+
+في ملف: public/index.html
+
+البحث عن:
+<select id="productType">
+  <option value="Minecraft Account">حساب Minecraft</option>
+  <option value="Discord Account">حساب Discord</option>
+  ...
+</select>
+
+أضف سطر جديد:
+<option value="اسم السلعة الجديدة">اسم السلعة الجديدة</option>
+
+مثال:
+<option value="حساب Fortnite">حساب Fortnite</option>
+
+═══════════════════════════════════════════════════════════════
+
+💬 تغيير الرسائل والنصوص:
+
+في ملف: public/app.js
+
+البحث عن alert() أو document.textContent
+
+مثال موجود:
+alert('تم إنشاء الحساب بنجاح');
+
+غيّره إلى:
+alert('✅ تم إنشاء حسابك بنجاح!');
+
+═══════════════════════════════════════════════════════════════
+
+🎭 إضافة تقيمات جديدة:
+
+في ملف: public/app.js
+
+البحث عن:
+const testimonials = [
+  { name: '...', rating: '...', text: '...' },
+  ...
+];
+
+أضف تقيم جديد:
+{
+  name: 'اسم الشخص',
+  rating: '⭐⭐⭐⭐⭐',
+  text: 'رأيه في الخدمة'
+}
+
+═══════════════════════════════════════════════════════════════
+
+📱 إضافة عمليات نموذجية:
+
+في ملف: public/app.js
+
+في دالة checkAuth() البحث عن:
+const sampleOps = [
+  {
+    id: 1,
+    ticketNumber: '...',
+    ...
+  }
+];
+
+أضف عملية جديدة:
+{
+  id: 3,
+  ticketNumber: '15000',
+  userId: 3,
+  productType: 'PlayStation Account',
+  price: 800,
+  userType: 'seller',
+  status: 'open',
+  createdAt: new Date().toISOString()
+}
+
+═══════════════════════════════════════════════════════════════
+
+🚀 تفعيل Node.js + قاعدة بيانات:
+
+عندما تثبت Node.js:
+
+1. اذهب للمجلد:
+   cd d:\web
+
+2. ثبت المتطلبات:
+   npm install
+
+3. شغّل الخادم:
+   npm start
+
+4. افتح:
+   http://localhost:3000
+
+سيعمل مع قاعدة بيانات SQLite الحقيقية!
+
+═══════════════════════════════════════════════════════════════
+
+🔧 تخصيص حساب الإدارة:
+
+في ملف: public/app.js
+
+البحث عن:
+if (!users['m5tl']) {
+  users['m5tl'] = { username: 'm5tl', password: 'm5tl123', role: 'admin' };
+}
+
+غيّر إلى:
+if (!users['admin-username']) {
+  users['admin-username'] = { username: 'admin-username', password: 'admin-password', role: 'admin' };
+}
+
+═══════════════════════════════════════════════════════════════
+
+📧 تغيير Discord Webhook:
+
+في ملف: public/app.js
+
+البحث عن:
+const DISCORD_WEBHOOK = 'https://discord.com/api/webhooks/...';
+
+استبدل الـ URL بـ webhook الخاص بك!
+
+═══════════════════════════════════════════════════════════════
+
+⚙️ إضافة ميزات جديدة:
+
+الخطوة 1: أضف HTML في public/index.html
+الخطوة 2: صمّم CSS في public/style.css
+الخطوة 3: أضف المنطق في public/app.js
+
+مثال: إضافة ميزة البحث
+
+1. في HTML: <input id="searchBox" placeholder="ابحث...">
+2. في CSS: منمّق #searchBox
+3. في JS:
+   document.getElementById('searchBox').addEventListener('input', (e) => {
+     // منطق البحث هنا
+   });
+
+═══════════════════════════════════════════════════════════════
+
+🐛 تصحيح الأخطاء:
+
+افتح Console في المتصفح:
+F12 → Console
+
+ستظهر الأخطاء هناك إذا حصلت!
+
+═══════════════════════════════════════════════════════════════
+
+💾 حفظ البيانات:
+
+البيانات تُحفظ تلقائياً في localStorage
+- Users: localStorage.getItem('users')
+- Operations: localStorage.getItem('operations')
+- Messages: localStorage.getItem('messages_${ticketNumber}')
+
+يمكنك رؤيتها في:
+F12 → Application → Local Storage
+
+═══════════════════════════════════════════════════════════════
+
+📊 إضافة Analytics:
+
+يمكنك أضافة Google Analytics بإضافة:
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=GA_ID"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'GA_ID');
+</script>
+
+═══════════════════════════════════════════════════════════════
+
+🌐 نشر الموقع على الإنترنت:
+
+خيارات:
+1. Vercel (مجاني): https://vercel.com
+2. GitHub Pages (مجاني): https://pages.github.com
+3. Netlify (مجاني): https://netlify.com
+4. هوستنج عادي
+
+ضع ملفات public/ فقط، وستعمل بسهولة!
+
+═══════════════════════════════════════════════════════════════
+
+👨‍💻 نصائح للمطورين:
+
+✓ استخدم DevTools (F12) للتصحيح
+✓ اختبر على أجهزة مختلفة
+✓ استخدم متصفحات مختلفة للتوافق
+✓ احفظ نسخة backup من الملفات
+✓ استخدم Git للإصدارات
+✓ اكتب تعليقات في الكود
+
+═══════════════════════════════════════════════════════════════
+
+📚 موارد إضافية:
+
+• MDN Web Docs: https://developer.mozilla.org
+• CSS Tricks: https://css-tricks.com
+• JavaScript.info: https://javascript.info
+• Express.js Docs: https://expressjs.com
+• SQLite3 Docs: https://www.sqlite.org
+
+═══════════════════════════════════════════════════════════════

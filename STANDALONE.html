@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>وسطاء العرب - منصة الوساطة المحترفة</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary: #1e3a8a;
+      --secondary: #0f172a;
+      --accent: #3b82f6;
+      --light: #f8fafc;
+      --text: #334155;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    .auth-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .auth-card {
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      max-width: 450px;
+      width: 100%;
+      padding: 40px;
+      animation: slideUp 0.5s ease-out;
+    }
+
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .brand h1 {
+      color: var(--primary);
+      font-size: 32px;
+      margin-bottom: 10px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .tabs {
+      display: flex;
+      gap: 10px;
+      margin: 25px 0;
+    }
+
+    .tab-btn {
+      flex: 1;
+      padding: 12px;
+      border: 2px solid #e2e8f0;
+      background: white;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .tab-btn.active {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border-color: transparent;
+    }
+
+    .auth-form {
+      display: none;
+    }
+
+    .auth-form.active {
+      display: block;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 12px;
+      border: 2px solid #e2e8f0;
+      border-radius: 8px;
+      font-size: 14px;
+      transition: all 0.3s ease;
+    }
+
+    .form-group input:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    }
+
+    .btn-primary {
+      width: 100%;
+      padding: 12px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-top: 10px;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+    }
+
+    .dashboard {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      display: none;
+    }
+
+    .navbar {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 20px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .welcome-message {
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    .welcome-message h1 {
+      font-size: 42px;
+      margin-bottom: 20px;
+      color: white;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    .testimonial-item {
+      background: var(--light);
+      padding: 15px;
+      border-radius: 8px;
+      border-right: 4px solid var(--accent);
+      margin-bottom: 12px;
+    }
+
+    .testimonial-item .name {
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    .testimonial-item .rating {
+      color: #f59e0b;
+      margin: 5px 0;
+    }
+
+    .testimonial-item .text {
+      font-size: 14px;
+      color: #666;
+      margin-top: 5px;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .testimonial-item {
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .testimonial-item:nth-child(2) {
+      animation-delay: 0.5s;
+    }
+
+    .testimonial-item:nth-child(3) {
+      animation-delay: 1s;
+    }
+
+    .content-section {
+      display: none;
+      padding: 30px;
+      animation: fadeIn 0.3s ease-out;
+    }
+
+    .content-section.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .btn-logout {
+      background: rgba(255, 255, 255, 0.2);
+      color: white;
+      border: 2px solid white;
+      padding: 8px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .btn-logout:hover {
+      background: white;
+      color: var(--primary);
+    }
+  </style>
+</head>
+<body>
+  <!-- Login/Signup -->
+  <div id="authPage" class="auth-container">
+    <div class="auth-card">
+      <div class="brand" style="text-align: center; margin-bottom: 30px;">
+        <h1>وسطاء العرب</h1>
+        <p style="color: #888;">منصة الوساطة والسمسرة المحترفة</p>
+      </div>
+
+      <div class="tabs">
+        <button class="tab-btn active" onclick="switchTab('login')">تسجيل دخول</button>
+        <button class="tab-btn" onclick="switchTab('signup')">إنشاء حساب</button>
+      </div>
+
+      <form id="loginForm" class="auth-form active" onsubmit="handleLogin(event)">
+        <div class="form-group">
+          <label>اسم المستخدم</label>
+          <input type="text" id="loginUsername" required>
+        </div>
+        <div class="form-group">
+          <label>كلمة المرور</label>
+          <input type="password" id="loginPassword" required>
+        </div>
+        <button type="submit" class="btn-primary">دخول</button>
+      </form>
+
+      <form id="signupForm" class="auth-form" onsubmit="handleSignup(event)">
+        <div class="form-group">
+          <label>اسم المستخدم</label>
+          <input type="text" id="signupUsername" required>
+        </div>
+        <div class="form-group">
+          <label>كلمة المرور</label>
+          <input type="password" id="signupPassword" required>
+        </div>
+        <div class="form-group">
+          <label>تأكيد كلمة المرور</label>
+          <input type="password" id="signupConfirm" required>
+        </div>
+        <button type="submit" class="btn-primary">إنشاء حساب</button>
+      </form>
+
+      <div style="margin-top: 40px; padding-top: 30px; border-top: 2px solid #e2e8f0;">
+        <h3 style="color: var(--primary); margin-bottom: 15px; font-size: 16px;">آراء عملائنا</h3>
+        <div id="testimonialsContainer"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dashboard -->
+  <div id="dashboardPage" class="dashboard">
+    <div class="navbar">
+      <h2>وسطاء العرب</h2>
+      <div style="display: flex; gap: 20px; align-items: center;">
+        <span id="userDisplay"></span>
+        <button onclick="logout()" class="btn-logout">تسجيل خروج</button>
+      </div>
+    </div>
+    <div class="welcome-message">
+      <h1>🎉 مرحباً بك في وسطاء العرب</h1>
+      <p style="font-size: 18px; margin-bottom: 30px; color: white;">منصة موثوقة للوساطة والسمسرة بين البائعين والمشترين</p>
+      <button onclick="logout()" class="btn-primary" style="max-width: 300px; margin: 20px auto; display: block;">تسجيل خروج</button>
+    </div>
+  </div>
+
+  <script>
+    const testimonials = [
+      { name: 'محمد السليمان', rating: '⭐⭐⭐⭐⭐', text: 'خدمة ممتازة وموثوقة جداً' },
+      { name: 'فاطمة الشمري', rating: '⭐⭐⭐⭐⭐', text: 'أفضل منصة وساطة' },
+      { name: 'أحمد القحطاني', rating: '⭐⭐⭐⭐⭐', text: 'أنصح بها جميع التجار' }
+    ];
+
+    let currentUser = null;
+
+    document.addEventListener('DOMContentLoaded', () => {
+      loadTestimonials();
+      checkAuth();
+      // Init admin user
+      let users = JSON.parse(localStorage.getItem('users') || '{}');
+      if (!users['m5tl']) {
+        users['m5tl'] = { username: 'm5tl', password: 'm5tl123', role: 'admin' };
+        localStorage.setItem('users', JSON.stringify(users));
+      }
+    });
+
+    function loadTestimonials() {
+      const container = document.getElementById('testimonialsContainer');
+      container.innerHTML = testimonials.map(t => `
+        <div class="testimonial-item">
+          <div class="name">${t.name}</div>
+          <div class="rating">${t.rating}</div>
+          <div class="text">"${t.text}"</div>
+        </div>
+      `).join('');
+    }
+
+    function switchTab(tab) {
+      document.querySelectorAll('.auth-form').forEach(f => f.classList.remove('active'));
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      
+      if (tab === 'login') {
+        document.getElementById('loginForm').classList.add('active');
+        document.querySelectorAll('.tab-btn')[0].classList.add('active');
+      } else {
+        document.getElementById('signupForm').classList.add('active');
+        document.querySelectorAll('.tab-btn')[1].classList.add('active');
+      }
+    }
+
+    function handleSignup(e) {
+      e.preventDefault();
+      const username = document.getElementById('signupUsername').value;
+      const password = document.getElementById('signupPassword').value;
+      const confirm = document.getElementById('signupConfirm').value;
+
+      if (password !== confirm) {
+        alert('كلمات المرور غير متطابقة');
+        return;
+      }
+
+      let users = JSON.parse(localStorage.getItem('users') || '{}');
+      if (users[username]) {
+        alert('اسم المستخدم موجود بالفعل');
+        return;
+      }
+
+      users[username] = { username, password, role: 'user' };
+      localStorage.setItem('users', JSON.stringify(users));
+      alert('تم إنشاء الحساب بنجاح');
+      switchTab('login');
+      document.getElementById('signupForm').reset();
+    }
+
+    function handleLogin(e) {
+      e.preventDefault();
+      const username = document.getElementById('loginUsername').value;
+      const password = document.getElementById('loginPassword').value;
+
+      const users = JSON.parse(localStorage.getItem('users') || '{}');
+      const user = users[username];
+
+      if (!user || user.password !== password) {
+        alert('بيانات الدخول غير صحيحة');
+        return;
+      }
+
+      currentUser = { username: user.username, role: user.role };
+      localStorage.setItem('user', JSON.stringify(currentUser));
+      showDashboard();
+    }
+
+    function checkAuth() {
+      const user = localStorage.getItem('user');
+      if (user) {
+        currentUser = JSON.parse(user);
+        showDashboard();
+      }
+    }
+
+    function showDashboard() {
+      document.getElementById('authPage').style.display = 'none';
+      document.getElementById('dashboardPage').style.display = 'block';
+      document.getElementById('userDisplay').textContent = `مرحباً: ${currentUser.username}`;
+    }
+
+    function logout() {
+      localStorage.removeItem('user');
+      currentUser = null;
+      document.getElementById('authPage').style.display = 'flex';
+      document.getElementById('dashboardPage').style.display = 'none';
+      document.getElementById('loginForm').reset();
+      switchTab('login');
+    }
+  </script>
+</body>
+</html>

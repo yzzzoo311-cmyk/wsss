@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>وسطاء العرب - منصة الوساطة المحترفة</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Landing Page -->
+  <div id="landingPage" class="landing-page">
+    <header class="site-header">
+      <div class="brand-name" onclick="goHome()">وسطاء العرب</div>
+      <div class="header-links">
+        <button class="btn-transparent" onclick="goHome()">الرئيسية</button>
+        <button class="btn-transparent" onclick="scrollToSection('featuresSection')">المميزات</button>
+        <button class="btn-transparent" onclick="scrollToSection('howItWorksSection')">كيف تعمل</button>
+        <button class="btn-transparent" onclick="scrollToSection('testimonialsSection')">آراء العملاء</button>
+      </div>
+      <div class="header-actions">
+        <button class="btn-secondary" onclick="showAuth('login')">تسجيل الدخول</button>
+        <button class="btn-primary" onclick="showAuth('signup')">إنشاء حساب</button>
+      </div>
+    </header>
+
+    <section class="hero-section">
+      <div class="hero-content">
+        <span class="eyebrow">الوسيط الأول لتوثيق المعاملات</span>
+        <h1>شريكك الموثوق لضمان حقوقك المالية</h1>
+        <p>لا داعي للقلق بعد اليوم، وسيطك يقف كطرف محايد ليضمن لك استلام مدفوعاتك أو منتجك بكل أمان وشفافية.</p>
+        <div class="hero-actions">
+          <button class="btn-secondary" onclick="startOperation()">إنشاء عملية وساطة</button>
+          <button class="btn-primary" onclick="showAuth('signup')">أنشئ حسابك مجاناََ</button>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-card">
+          <div class="hero-card-header">
+            <span class="tag">وساطة آمنة</span>
+            <span class="tag-white">موثوق</span>
+          </div>
+          <div class="hero-card-body">
+            <div class="line"></div>
+            <div class="step">🛡️ ضمان حماية الدفع</div>
+            <div class="step">✅ تحقق الجانبين</div>
+            <div class="step">📦 تسليم آمن وسهل</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="featuresSection" class="features-section">
+      <div class="section-intro">
+        <span class="highlight-label">مميزات استثنائية</span>
+        <h2>مميزات رسالة باللون الأزرق</h2>
+      </div>
+      <div class="feature-cards">
+        <div class="feature-card glass-card">
+          <h3>تتبع المعاملة</h3>
+          <p>تتبع كل خطوة من خطوات المعاملة مع تقارير
+             مفصلة وإشعارات فورية.</p>
+        </div>
+        <div class="feature-card glass-card">
+          <h3>دفع آمن 100%</h3>
+          <p>تقنيات تشفير متقدمة لحماية بياناتك المالية 
+            وضمان سلامة التحويلات.</p>
+        </div>
+        <div class="feature-card glass-card">
+          <h3>تواصل مباشر</h3>
+          <p>محادثة فورية بين أطراف المعاملة مع إمكانية
+             إرفاق الملفات والوثائق.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="howItWorksSection" class="how-it-works-section">
+      <div class="section-intro">
+        <span class="highlight-label">كيف تعمل المنصة</span>
+        <h2>أربع خطوات بسيطة</h2>
+      </div>
+      <div class="process-grid">
+        <div class="process-card">
+          <h3>1. أنشئ المعاملة</h3>
+          <p>حدد التفاصيل وادعُ الطرف الآخر.</p>
+        </div>
+        <div class="process-card">
+          <h3>2. احجز المبلغ</h3>
+          <p>يحتفظ المبلغ بأمان لدى المنصة.</p>
+        </div>
+        <div class="process-card">
+          <h3>3. نفذ الخدمة</h3>
+          <p>البائع ينفذ المطلوب ويرفع الإثبات.</p>
+        </div>
+        <div class="process-card">
+          <h3>4. استلم المبلغ</h3>
+          <p>بعد التأكيد يحول المبلغ للبائع.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="testimonialsSection" class="testimonials-section">
+      <div class="section-intro">
+        <span class="highlight-label">آراء عملائنا</span>
+        <h2>ماذا يقول مستخدمونا؟</h2>
+      </div>
+      <div class="testimonial-grid" id="testimonialsContainer"></div>
+    </section>
+
+    <section class="cta-section">
+      <div class="cta-card">
+        <h2>جاهز لبدء معاملة آمنة؟</h2>
+        <p>انضم لآلاف المستخدمين الذين يثقون بمنصة وسطاء العرب.</p>
+        <button class="btn-primary" onclick="showAuth('signup')">أنشئ حسابك مجاناََ</button>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <div class="footer-main">
+        <div class="footer-info">
+          <h2>منصة وسطاء العرب</h2>
+          <p>منصتك الآمنة للوساطة في المعاملات المالية، نضمن لك تجربة آمنة وموثوقة في جميع معاملاتك.</p>
+        </div>
+        <div class="footer-contact">
+          <h3>اتصل بنا</h3>
+          <p>050 414 0000</p>
+          <p>info@wsta.com</p>
+          <p>الرياض ، المملكة العربية السعودية</p>
+        </div>
+      </div>
+      <div class="footer-bottom">جميع الحقوق محفوظة لمنصة وسطاء العرب</div>
+    </footer>
+  </div>
+
+  <div id="authModal" class="auth-modal hidden">
+    <div class="auth-card modal-card">
+      <button class="modal-close" onclick="closeAuth()">✕</button>
+      <div class="brand">
+        <h1>وسطاء العرب</h1>
+        <p>سجل دخولك أو أنشئ حسابك الآن</p>
+      </div>
+      <div class="tabs">
+        <button class="tab-btn active" onclick="switchTab('login')">تسجيل دخول</button>
+        <button class="tab-btn" onclick="switchTab('signup')">إنشاء حساب</button>
+      </div>
+      <form id="loginForm" class="auth-form active" onsubmit="handleLogin(event)">
+        <div class="form-group">
+          <label>اسم المستخدم</label>
+          <input type="text" id="loginUsername" required>
+        </div>
+        <div class="form-group">
+          <label>كلمة المرور</label>
+          <input type="password" id="loginPassword" required>
+        </div>
+        <button type="submit" class="btn-primary">دخول</button>
+      </form>
+      <form id="signupForm" class="auth-form" onsubmit="handleSignup(event)">
+        <div class="form-group">
+          <label>اسم المستخدم</label>
+          <input type="text" id="signupUsername" required>
+        </div>
+        <div class="form-group">
+          <label>كلمة المرور</label>
+          <input type="password" id="signupPassword" required>
+        </div>
+        <div class="form-group">
+          <label>تأكيد كلمة المرور</label>
+          <input type="password" id="signupConfirm" required>
+        </div>
+        <button type="submit" class="btn-primary">إنشاء حساب</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Dashboard Page -->
+  <div id="dashboardPage" class="dashboard" style="display: none;">
+    <header class="dashboard-topbar">
+      <div class="dashboard-brand">وسطاء العرب</div>
+      <div class="dashboard-user-section">
+        <div class="dashboard-user-id" id="userDisplay"></div>
+        <button onclick="logout()" class="btn-logout">تسجيل خروج</button>
+      </div>
+    </header>
+
+    <div class="dashboard-main">
+      <aside class="dashboard-sidebar">
+        <button class="sidebar-btn active" onclick="goHome()">الرئيسية</button>
+        <button id="sidebarCreateBtn" class="sidebar-btn" onclick="switchSection('create')">إنشاء عملية</button>
+        <button class="sidebar-btn" onclick="switchSection('operations')">عملياتي</button>
+        <button id="adminBtn" class="sidebar-btn" style="display: none;" onclick="switchSection('admin')">لوحة التحكم</button>
+      </aside>
+
+      <main class="dashboard-content">
+        <section id="homeSection" class="content-section active">
+          <div class="dashboard-hero-card">
+            <div>
+              <h2>مرحباً بك في وسطاء العرب</h2>
+              <p>منصة موثوقة للوساطة والسمسرة بين البائعين والمشترين</p>
+            </div>
+          </div>
+
+          <div class="dashboard-stats-row">
+            <div class="stat-card">
+              <span class="stat-value" id="activeUsersCount">0</span>
+              <span class="stat-label">مستخدمين نشطين</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-value" id="completedOpsCount">0</span>
+              <span class="stat-label">عمليات مكتملة</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-value" id="totalOpsCount">0</span>
+              <span class="stat-label">عمليات تجارية</span>
+            </div>
+          </div>
+
+          <button id="homeCreateBtn" onclick="switchSection('create')" class="btn-big-action">إنشاء عملية وساطة جديدة</button>
+        </section>
+
+        <section id="createSection" class="content-section">
+          <h2>إنشاء عملية وساطة جديدة</h2>
+          <div class="create-grid">
+            <form id="operationForm" class="operation-form" onsubmit="handleCreateOperation(event)">
+              <div class="form-header">
+                <div>
+                  <h3>معلومات أساسية</h3>
+                  <p class="small-note">تفاصيل المعاملة والخدمات المطلوبة</p>
+                </div>
+              </div>
+
+              <div class="form-grid">
+                <div class="form-group">
+                  <label>عنوان العملية</label>
+                  <input type="text" id="operationTitle" placeholder="مثال: بيع هاتف iPhone 14 Pro Max" required>
+                </div>
+                <div class="form-group">
+                  <label>الفئة</label>
+                  <div class="category-grid">
+                    <label class="category-tag"><input type="radio" name="category" value="إلكترونيات" required><span>إلكترونيات</span></label>
+                    <label class="category-tag"><input type="radio" name="category" value="سيارات"><span>سيارات</span></label>
+                    <label class="category-tag"><input type="radio" name="category" value="خدمات"><span>خدمات</span></label>
+                    <label class="category-tag"><input type="radio" name="category" value="عقارات"><span>عقارات</span></label>
+                    <label class="category-tag"><input type="radio" name="category" value="أخرى"><span>أخرى</span></label>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label>نوع السلعة أو الخدمة</label>
+                  <input type="text" id="productType" placeholder="مثال: حساب Steam أو خدمة تصميم" required>
+                </div>
+                <div class="form-group">
+                  <label>دورك في العملية</label>
+                  <div class="role-grid">
+                    <label class="role-tag"><input type="radio" name="operationRole" value="seller" required><span>أنا بائع</span></label>
+                    <label class="role-tag"><input type="radio" name="operationRole" value="buyer"><span>أنا مشتري</span></label>
+                  </div>
+                </div>
+                <div class="form-group full-width">
+                  <label>وصف العملية</label>
+                  <textarea id="operationDescription" rows="4" placeholder="وصف تفصيلي للمنتج أو الخدمة..." required></textarea>
+                </div>
+              </div>
+
+              <div class="form-grid">
+                <div class="form-group">
+                  <label>المبلغ (ريال)</label>
+                  <input type="number" id="operationAmount" min="1" placeholder="0.00" required>
+                </div>
+                <div class="form-group">
+                  <label>اسم مستخدم البائع على المنصة</label>
+                  <input type="text" id="sellerUsername" placeholder="اسم مستخدم البائع" required>
+                </div>
+                <div class="form-group">
+                  <label>اسم مستخدم المشتري على المنصة</label>
+                  <input type="text" id="buyerUsername" placeholder="اسم مستخدم المشتري" required>
+                </div>
+              </div>
+
+              <div class="form-actions">
+                <button type="submit" class="btn-success">إنشاء العملية</button>
+                <button type="button" class="btn-cancel" onclick="switchSection('home')">إلغاء</button>
+              </div>
+            </form>
+
+            <aside class="create-sidebar">
+              <div class="protection-box">
+                <h3>حماية مضمونة</h3>
+                <ul>
+                  <li>نظام الوسيط يحمي جميع الأطراف</li>
+                  <li>يقوم المشتري بدفع المبلغ للوسيط</li>
+                  <li>يؤكد البائع تسليم المنتج أو الخدمة</li>
+                  <li>يتحقق المشتري من الاستلام</li>
+                  <li>يحصل البائع على المبلغ بعد التأكيد</li>
+                </ul>
+              </div>
+              <div class="tips-box">
+                <h3>نصائح مهمة</h3>
+                <ul>
+                  <li>أضف عنوان واضح للمعاملة</li>
+                  <li>اكتب وصفاً دقيقاً للمواصفات</li>
+                  <li>تأكد من صحة البريد الإلكتروني للطرفين</li>
+                  <li>حدد المبلغ بدقة لتفادي الخلافات</li>
+                </ul>
+              </div>
+            </aside>
+          </div>
+        </section>
+
+        <section id="operationsSection" class="content-section">
+          <h2>عملياتي</h2>
+          <div id="operationsList" class="operations-list"></div>
+        </section>
+
+        <section id="adminSection" class="content-section">
+          <h2>لوحة التحكم - إدارة التذاكر</h2>
+          <div id="adminTicketsList" class="admin-tickets"></div>
+        </section>
+      </main>
+    </div>
+
+    <div id="chatWindow" class="chat-window">
+      <div class="chat-header">
+        <div>
+          <span class="chat-title">شات المعاملة</span>
+          <span class="ticket-number" id="ticketDisplay"></span>
+        </div>
+        <div class="chat-search">
+          <input id="chatSearchInput" type="text" placeholder="بحث في المحادثات...">
+          <button type="button" onclick="filterChatMessages()">بحث</button>
+        </div>
+        <button onclick="closeChat()" class="btn-close">✕</button>
+      </div>
+      <div id="messagesContainer" class="messages-container"></div>
+      <div class="chat-footer">
+        <input type="text" id="messageInput" placeholder="اكتب رسالتك...">
+        <button onclick="sendMessage()" class="btn-send">إرسال</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
